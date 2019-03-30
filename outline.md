@@ -1,0 +1,45 @@
+# 一歩先へ進みたいiOSアプリ開発初心者のための開発をもっと便利にするテクニック集
+# 0章
+- はじめに
+- 対象読者
+- 必須知識
+- 推奨知識
+- 想定環境
+- 本書に関するお問い合わせ
+- サンプルリポジトリ
+- ツイッター
+- 免責事項
+- 表記関係について
+- 底本について
+# iOSアプリ開発において読んでおくべきもの
+- HUG
+- iOSアプリ開発ベストプラクティス
+- Swift実践入門
+# Xcodeテクニック
+- ショートカット
+- Info.plist
+- project settings
+- schema
+# ライブラリ
+- Bundler
+- CocoaPods
+- Carthage
+- R.swift
+- RxSwift
+- SwiftLint
+- HyperioniOS
+- SwiftDate
+- PKHUD
+- Nuke
+# Firebase
+- Crashlytics
+- Performance
+- RemoteConfig
+# テスト
+- XCTest
+- Quick
+# CI/CD
+- Bitrise
+- Fastlane
+# n-1章 次のステップへ
+# end 著者紹介
