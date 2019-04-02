@@ -176,11 +176,45 @@ CocoaPodsとの違いを大まかにすると、CocoaPodsでライブラリ管�
 
 インストールや扱いについては変に噛み砕いて説明するより (https://github.com/Carthage/Carthage)の`README.md`のほうがわかりやすいためこちらをご参照下さい。
 
-- Bundler
-- R.swift
-- RxSwift
-- SwiftLint
-- HyperioniOS
+## R.swift
+
+https://github.com/mac-cain13/R.swift
+プロジェクトにインポートした画像やViewControllerのnib名を安全に取得できるようにするライブラリ
+
+例えば、いま開発中のプロジェクト内で画像、ViewControllerを扱うときに次のような書き方をしている場合
+
+```
+let icon = UIImage(named: "settings-icon")
+let font = UIFont(name: "San Francisco", size: 42)
+let color = UIColor(named: "indictator highlight")
+let viewController = CustomViewController(nibName: "CustomView", bundle: nil)
+let string = String(format: NSLocalizedString("welcome.withName", comment: ""), locale: NSLocale.current, "Arthur Dent")
+```
+
+R.swiftを使うことで、次のようにタイプセーフに扱うことができるようになります。
+
+```
+let icon = R.image.settingsIcon()
+let font = R.font.sanFrancisco(size: 42)
+let color = R.color.indicatorHighlight()
+let viewController = CustomViewController(nib: R.nib.customView)
+let string = R.string.localizable.welcomeWithName("Arthur Dent")
+```
+
+ライブラリの導入に少し手順がありますが、導入するとタイプセーフにリソースを扱えるようになるので、typoのミスを極力減らせます！
+
+## SwiftLint
+
+オープンソースの静的解析ツール
+- https://github.com/realm/SwiftLint
+
+GithubのSwift Style Guide (https://github.com/github/swift-style-guide)に基づいてSwiftのコードスタイルを強制してくれるツールです。
+
+例えば、次のようにコード規約に反したコードを書いたときに自動的に指摘をしてくれるようになります。
+
+チーム開発では必須ですね
+
+## HyperioniOS
 - SwiftDate
 - PKHUD
 - Nuke
