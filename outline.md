@@ -214,12 +214,58 @@ GithubのSwift Style Guide (https://github.com/github/swift-style-guide)に基�
 
 チーム開発では必須ですね
 
-## HyperioniOS
-- SwiftDate
-- PKHUD
-- Nuke
+## SwiftDate
+
+- オープンソースの日付パース、フォーマット、カスタム日付作成がSwiftで簡単にできるようになるライブラリ
+- https://github.com/malcommac/SwiftDate
+
+次のように扱えます。
+
+```
+// 例えば、このようにテキストから日付に設定できたり
+let _ = "2010-05-20 15:30".toDate("yyyy-MM-dd HH:mm")
+// 次のように日付計算できたり
+let _ = ("2010-05-20 15:30:00".toDate() + 3.months - 2.days)
+let _ = Date() + 3.hours
+let _ = date1 + [.year:1, .month:2, .hour:5]
+let _ = date1 + date2
+// 次のように判定できたりします
+let _ = date.compare(.isToday)
+let _ = date.compare(.isNight)
+let _ = date.compare(.isNextWeek)
+let _ = date.compare(.isThisMonth)
+let _ = date.compare(.startOfWeek)
+let _ = date.compare(.isNextYear)
+```
+
+日付によってXXしたい、N時間後にXしたい等、日付に関わる処理をしたいときに便利！
+
+## PKHUD
+
+- 簡単にいろいろなHUDを表示できるライブラリ
+- https://github.com/pkluz/PKHUD
+
+処理中、成功、失敗等のHUDを簡単に表示できるライブラリ。
+
+例えば、次のように表示させることができます。（アニメーション付き）
+
+## Nuke
+
+- 画像読み込み、キャッシュライブラリ
+- https://github.com/kean/Nuke
+
+2019年4月現在、周りでよく使われている印象があります👀
+ImagePipelineという仕組みがとても便利で、簡単に画像取得の優先度を設定できたりタスクのキャンセルが行えます。筆者が扱っているプロダクトでは、以前はSDWebImageを使っていたのですが、それよりもNukeを使ったほうが画像表示が早く扱いやすく、すぐに乗り換えました。
+
 # Firebase
-- Crashlytics
+
+この章では、iOSアプリ開発においてもはや無くてはならぬ手軽で強力なモバイルおよびWebアプリのバックエンドサービスである、「Firebase」の機能について紹介します。
+Firebaseのサービスはいくつかありますが、その中でもモバイルアプリに関わり、本書と趣旨があうものだけを抜粋していきます。
+
+## Crashlytics
+
+
+
 - Performance
 - RemoteConfig
 # テスト
