@@ -342,10 +342,67 @@ Auth.auth().createUser(withEmail: email, password: password) { (authResult, erro
 同様に、Google連携やTwitter連携も簡単にできるのでドキュメントを参照してみてください。
 
 # テスト
-- XCTest
+## XCTest
+
+ユニットテスト、パフォーマンステスト、UIテストなどを作成、実行できるフレームワーク
+
+- Apple - XCTest
+- https://developer.apple.com/documentation/xctest
+
+特に何もライブラリを導入しなくても、標準のXcodeでも実行できます。
+
+- TODO: 実際に１つテストを書いてみる
+
+## Quick
+
+RSpecやSpecta等のライブラリに似たテスト用ライブラリ
+
 - Quick
+- https://github.com/Quick/Quick
+
+先程のXCTestを使って書いたテストコードを、Quickを使って書き直してみます。
+
+- TODO: XCTestで書いたテストをQuickで書き直す
+
 # CI/CD
+## Bitrise
+
+モバイルアプリケーション用のCI/CDサービス
+
 - Bitrise
+- https://www.bitrise.io/
+
+### 用語解説
+
+- CI (Continuous Integration) 継続的インテグレーション
+  - 例: PullRequestの作成時やmasterブランチ変更時に自動ビルドとテストを実行し、品質の安定を図る
+- CD (Continuous Delivery) 継続的デリバリー
+  - 例: masterブランチが変更されるたびに自動でビルドし、自動でテスターに配布する
+
+### 使い方
+
+※この本が出版された後に手順が変わる可能性があるので、大体の手続きだけ説明します
+
+- アカウントの作成
+- アプリを登録する（アプリ名とか）
+- リポジトリを登録する (optional: Github連携)
+- ブランチを選択 (ex. master)
+
+アプリの登録が終わると、次は自動ビルド時に使う用の証明書をBitriseサービスに登録します。
+
+- アプリ > Workflow > Code Signingを開く
+- PROVISIONING PROFILEセクションに.mobileprovisionファイルをドラッグしてアップロード
+- CODE SIGNING IDENTITYセクションに.p12ファイルをドラッグしてアップロード
+
+その後、`Start/Schedule` ボタンを押してbranchを`master`にすると自動ビルドが走ります。
+自動ビルド後にテストを走らせたいだとか、Slackに結果を送信したい・・・といったことをしたい場合は `Workflows`を開き、適当にポチポチと追加していくだけで実現できます。
+
+## Fastlane
+
+CI/CD用ライブラリ
+
 - Fastlane
+- https://github.com/fastlane/fastlane
+
 # n-1章 次のステップへ
 # end 著者紹介
