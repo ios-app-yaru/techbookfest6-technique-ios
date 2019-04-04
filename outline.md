@@ -399,10 +399,131 @@ RSpecやSpecta等のライブラリに似たテスト用ライブラリ
 
 ## Fastlane
 
-CI/CD用ライブラリ
+iOS/Androidアプリ開発者向けのCI/CD用ライブラリ
 
 - Fastlane
 - https://github.com/fastlane/fastlane
+- https://docs.fastlane.tools/
 
-# n-1章 次のステップへ
-# end 著者紹介
+スクリーンショットの作成、ProvisioningProfileの処理、アプリのデプロイ、リリース等の作業を自動化できます。
+
+### 導入
+
+今回は、試しにTestflightへコマンド一発でデプロイできる仕組みを作ってみます。まずはプロジェクトにfastlaneを導入するため、次のコマンド郡を実行してください。
+
+```
+# xcode commandline toolの導入
+xcode-select --install
+# RubyGems を利用してのインストール
+sudo gem install fastlane -NV
+# プロジェクトへ移動
+cd YOUR_XCODE_PROJECT
+# fastlaneの導入
+fastlane init
+```
+
+自動でセットアップすることもできますが、今回はマニュアルでセットアップしていきます。
+
+```
+ryo-takahashi@~/workspace/ios/MiruCall_Swift[introduce-fastlane]> fastlane init
+[✔] 🚀
+[✔] Looking for iOS and Android projects in current directory...
+[23:20:43]: Created new folder './fastlane'.
+[23:20:43]: Detected an iOS/macOS project in the current directory: 'MiruCall_Swift.xcworkspace'
+[23:20:43]: -----------------------------
+[23:20:43]: --- Welcome to fastlane 🚀 ---
+[23:20:43]: -----------------------------
+[23:20:43]: fastlane can help you with all kinds of automation for your mobile app
+[23:20:43]: We recommend automating one task first, and then gradually automating more over time
+[23:20:43]: What would you like to use fastlane for?
+1. 📸  Automate screenshots
+2. 👩‍✈️  Automate beta distribution to TestFlight
+3. 🚀  Automate App Store distribution
+4. 🛠  Manual setup - manually setup your project to automate your tasks
+?
+```
+
+4（マニュアルセットアップ）を入力したあと、各種ファイルの自動生成とfastlaneのイロイロについての説明が色々出力されるので基本Enter連打で進めて下さい。完了すると、次のようなファイル群が生成されます。
+
+- fastlane/Appfile
+  - AppleIDやアプリのBundleIdentifierを定義
+- fastlane/Fastfile
+  - 自動化処理を記述
+  - 各種laneを定義
+    - lane➔１つ１つの自動化処理の名前のようなもの
+    - 自動デプロイするlane、自動スクショ撮るlane、自動テストするlane等
+
+前提
+- Apple Developer > IdentifiersでアプリのIDを登録している
+- Apple DeveloperでアプリのProvisioning Profileを作成している
+
+試しに、自動でテストを走らせるlaneを定義してみます。その場合は、Fastfileを開き次のように編集します
+
+```
+default_platform(:ios)
+
+platform :ios do
+  desc "test"
+  lane :test do
+    run_tests # 実行する処理、actionと呼ばれている
+  end
+end
+```
+
+その後、次のコマンドを入力すると自動でテストが走ります
+
+```
+fastlane test
+```
+
+また、actionはもっとカスタマイズすることができます。
+
+```
+platform :ios do
+  desc "test"
+  lane :test do
+    run_tests(
+      devices: ["iPhone 6s", "iPad Air"],
+      clean: true
+    )
+  end
+end
+```
+
+他にも、AppleStoreへの自動デプロイ、Testflightへの自動デプロイ等いくつかactionが用意されています。詳しくはドキュメントをご参照下さい。(https://docs.fastlane.tools/actions/)
+
+# 次のステップへ
+
+ここまで、iOSアプリ開発初心者向けにさらにステップアップするためのツールやライブラリ等を解説してきました。では、次のステップでは何をすればよいのか？
+
+と、その前にここまででやってきたことを少し振り返ってみます。
+
+- ライブラリ管理ツールの導入 (Cocoapods, Carthage)
+- ライブラリの導入 (R.swift, Nuke等)
+- 品質向上のためのツール導入（Crashlytics、Performance Monitorning等）
+- テスト (XCTest, Quick)
+- CI/CD (Bitrise, fastlane)
+
+ここまででは、アプリ開発のおけるいわゆる基盤といった部分を支える仕組みを導入してきました。
+では、基盤を整えたら次は何をするか？そう、グロースです。
+
+次は、アプリを成長させましょう！！！！
+
+アプリを成長させるためのツールとしては、本書で少し紹介した `RemoteConfig` の他にも `Firebase A/BTesting`、`Firebase Cloud Messaging`等、たくさんありますが、それはまた次のお話ということで・・・。
+
+# 最後に
+
+ここまで読んで頂き、ありがとうございました。本書ではiOSアプリ開発初心者にむけて、また、「チュートリアル終わって、サンプルアプリを作れるようになったけど、次なにすりゃいいの？というかみんなどんなツール使ってるの？モダンな環境ってなんだろう？教えて〜〜」と過去に思っていた当時の自分に向けて最高の本を作ろうと思い、書き始めました。
+
+が、業務が押していたりWWDC当選したせいで英語の勉強が挿し込んだり縁があって副業を週1.5でやることになったりと技術同人誌執筆に割く時間が減ってしまい、結果、各ツールやライブラリについて深堀りしていくことができず、広く・浅くの解説になってしまいました。が！、それでも過去の自分がこの本を見て「めっちゃ最高に役立つじゃん！」と思えるような本になんとか頑張って仕上げました。
+
+これからのアプリ開発でどこかしらの部分で、本書で得た知識を活かして頂ければとても嬉しいです。
+
+# 著者紹介
+
+- @k0uhashi　(本名：髙橋　凌 (Ryo Takahashi))
+
+情報系専門学校を2017年に卒業、同年入社した受託開発会社を経て、2018年に株式会社トクバイに入社。
+以来、破壊的イノベーションで小売業界を変革するためiOSアプリエンジニアとして従事。
+著書はインプレスR＆D社出版の「比較して学ぶRxSwift入門」、前回の技術書典5では「比較して学ぶRxSwift4入門」を頒布
+最近は兼業してスタートアップでテックリードをやってたりしてる。
