@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: vvakame/review
+    steps:
+      - checkout
+      - run:
+          name: Build PDF
+          command: ./setup.sh && npm run pdf
+      - store_artifacts:
+          path: ./articles/book.pdf
+          destination: book.pdf
+      - run:
+          name: Upload to Dropbox
+          command: ./upload_dropbox.sh ./articles/book.pdf ${DROPBOX_TOKEN}
+      - run:
+          name: Post PDF URL to Slack
+          command: ./post-pdf-url-to-slack.sh ${SLACK_TOKEN}
