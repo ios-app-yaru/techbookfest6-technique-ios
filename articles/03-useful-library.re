@@ -14,7 +14,7 @@ sudo gem install cocoapods
 pod setup
 //}
 
-その後、terminalでXcodeプロジェクトの階層へ移動し、次のコマンドを実行
+その後、terminalでXcodeプロジェクトの階層へ移動し、次のコマンドを実行
 
 //emlist[]{
 pod init
