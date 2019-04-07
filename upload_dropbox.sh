@@ -6,7 +6,7 @@ then
 	exit 1
 fi
 
-filename="book.pdf"
+filename="techbookfest6-modern-develop-ios.pdf"
 
 echo "Upload $1 to $filename"
 
