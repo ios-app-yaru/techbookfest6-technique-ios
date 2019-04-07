@@ -1,9 +1,9 @@
--# ライブラリ
-## CocoaPods
+= ライブラリ
+== CocoaPods
 Rubyで作られているiOS/MacOS向けのライブラリ管理ツール。オープンソースプロジェクトであり、GitHub上で有志によって開発されている (https://github.com/CocoaPods/CocoaPods) 
 いちいちGitHubからライブラリをダウンロードして導入しなくても、これを使うことによって自動で依存を解決しつつ、ライブラリをプロジェクトに簡単に導入することができるようになる。
 
-### 導入
+=== 導入
 
 前提として、PCにrubyがインストールされている必要がありますが、MacOSではデフォルトで導入されているので、そのインストールは省略します。
 
@@ -51,7 +51,7 @@ pod update
 - `pod update`
   - ライブラリのバージョンをアップデートしたい
 
-## Carthage
+== Carthage
 
 前節で説明したものと同じようなライブラリ管理ツールとしてCarthage（カーセッジ、カルタゴ）があります。こちらはSwiftで作られていて、同じようにオープンソースプロジェクトとしてGitHubで公開されています。
 
@@ -61,7 +61,7 @@ CocoaPodsとの違いを大まかにすると、CocoaPodsでライブラリ管�
 
 インストールや扱いについては変に噛み砕いて説明するより (https://github.com/Carthage/Carthage)の`README.md`のほうがわかりやすいためこちらをご参照下さい。
 
-## R.swift
+== R.swift
 
 https://github.com/mac-cain13/R.swift
 プロジェクトにインポートした画像やViewControllerのnib名を安全に取得できるようにするライブラリ
@@ -88,7 +88,7 @@ let string = R.string.localizable.welcomeWithName("Arthur Dent")
 
 ライブラリの導入に少し手順がありますが、導入するとタイプセーフにリソースを扱えるようになるので、typoのミスを極力減らせます！
 
-## SwiftLint
+== SwiftLint
 
 オープンソースの静的解析ツール
 - https://github.com/realm/SwiftLint
@@ -99,7 +99,7 @@ GithubのSwift Style Guide (https://github.com/github/swift-style-guide)に基�
 
 チーム開発では必須ですね
 
-## SwiftDate
+== SwiftDate
 
 - オープンソースの日付パース、フォーマット、カスタム日付作成がSwiftで簡単にできるようになるライブラリ
 - https://github.com/malcommac/SwiftDate
@@ -125,7 +125,7 @@ let _ = date.compare(.isNextYear)
 
 日付によってXXしたい、N時間後にXしたい等、日付に関わる処理をしたいときに便利！
 
-## PKHUD
+== PKHUD
 
 - 簡単にいろいろなHUDを表示できるライブラリ
 - https://github.com/pkluz/PKHUD
@@ -134,7 +134,7 @@ let _ = date.compare(.isNextYear)
 
 例えば、次のように表示させることができます。（アニメーション付き）
 
-## Nuke
+== Nuke
 
 - 画像読み込み、キャッシュライブラリ
 - https://github.com/kean/Nuke

@@ -1,19 +1,19 @@
-# CI/CD
-## Bitrise
+= CI/CD
+== Bitrise
 
 モバイルアプリケーション用のCI/CDサービス
 
 - Bitrise
 - https://www.bitrise.io/
 
-### 用語解説
+=== 用語解説
 
 - CI (Continuous Integration) 継続的インテグレーション
   - 例: PullRequestの作成時やmasterブランチ変更時に自動ビルドとテストを実行し、品質の安定を図る
 - CD (Continuous Delivery) 継続的デリバリー
   - 例: masterブランチが変更されるたびに自動でビルドし、自動でテスターに配布する
 
-### 使い方
+=== 使い方
 
 ※この本が出版された後に手順が変わる可能性があるので、大体の手続きだけ説明します
 
@@ -31,7 +31,7 @@
 その後、`Start/Schedule` ボタンを押してbranchを`master`にすると自動ビルドが走ります。
 自動ビルド後にテストを走らせたいだとか、Slackに結果を送信したい・・・といったことをしたい場合は `Workflows`を開き、適当にポチポチと追加していくだけで実現できます。
 
-## Fastlane
+== Fastlane
 
 iOS/Androidアプリ開発者向けのCI/CD用ライブラリ
 
@@ -41,7 +41,7 @@ iOS/Androidアプリ開発者向けのCI/CD用ライブラリ
 
 スクリーンショットの作成、ProvisioningProfileの処理、アプリのデプロイ、リリース等の作業を自動化できます。
 
-### 導入
+=== 導入
 
 今回は、試しにTestflightへコマンド一発でデプロイできる仕組みを作ってみます。まずはプロジェクトにfastlaneを導入するため、次のコマンド郡を実行してください。
 

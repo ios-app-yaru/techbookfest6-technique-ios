@@ -1,13 +1,12 @@
-
-# Xcodeテクニック
-## ショートカット
+= Xcodeテクニック
+== ショートカット
 
 XcodeでiOSアプリを効率的に開発する上で習得必須な便利ショートカットをここで紹介していきます。
 
 caps lock -> control
 control -> command
 
-### Build周り
+=== Build周り
 - Command + B
   - ビルド
 - Command + R
@@ -28,7 +27,7 @@ control -> command
 - Command + Control + Y
   - ブレークポイントのところから再開
 
-### 検索周り
+=== 検索周り
 - Command + F
   - エディタ内の検索
 - Command + Option + F
@@ -43,13 +42,13 @@ control -> command
   - プロジェクト内のファイル名やメソッドの検索
   - これを覚えるとでかい！
 
-### コードエディタ周り
+=== コードエディタ周り
 - Command + Shift + J
   - プロジェクトナビゲータで現在編集しているファイルの位置をフォーカスさせる
 - Option + Click
   - 軽くリファレンスを表示
 
-### シミュレータ
+=== シミュレータ
 - Command + S
   - スクリーンショットの撮影
 - Command + K
@@ -57,5 +56,5 @@ control -> command
 - Command + Shift + H
   - ホーム画面に戻る
 
-### Project Settings
+=== Project Settings
 - production schemaとproduction-debug schemaとDebug schemaを作成する方法について

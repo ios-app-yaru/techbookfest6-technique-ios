@@ -1,9 +1,8 @@
-
-# iOSアプリ開発において読んでおくべきもの
+= iOSアプリ開発において読んでおくべきもの
 
 本章では、これからのiOSアプリ開発において、読んでおくべきだと感じたリファレンスや書物、サイトを紹介していきます。
 
-## Human Interface Guidelines
+== Human Interface Guidelines
 
 - Human Interface Guidelines (https://developer.apple.com/design/human-interface-guidelines/)
 - 以下、HIG
@@ -12,7 +11,7 @@ AppleによるUI設計の原則を定めたガイドライン。なんかイマ�
 例えば、次のようなことが書かれています。
 - 2個くらい紹介する
 
-## iOSアプリ開発ベストプラクティス
+== iOSアプリ開発ベストプラクティス
 
 - iOS-factor (https://ios-factor.com/ja/)
 - リポジトリ (https://github.com/ios-factor/ios-factor.com)
@@ -37,7 +36,7 @@ V. Prefer local over remote
 信頼性：まだ信頼性の低い LTE/3G 回線を持つ国がある
 ```
 
-## Swift実践入門 ── 直感的な文法と安全性を兼ね備えた言語 (WEB+DB PRESS plus)
+== Swift実践入門 ── 直感的な文法と安全性を兼ね備えた言語 (WEB+DB PRESS plus)
 
 - 技術評論社より出版
 

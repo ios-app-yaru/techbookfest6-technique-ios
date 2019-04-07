@@ -1,9 +1,9 @@
-# Firebase
+= Firebase
 
 この章では、iOSアプリ開発においてもはや無くてはならぬ手軽で強力なモバイルおよびWebアプリのバックエンドサービスである、「Firebase」の機能について紹介します。
 Firebaseのサービスはいくつかありますが、その中でもモバイルアプリに関わり、本書と趣旨があうものだけを抜粋していきます。
 
-## Firebase Crashlytics
+== Firebase Crashlytics
 
 Firebase Crashlyticsはリアルタイムなクラッシュレポートツールで、アプリの品質を低下する要因（クラッシュや非重大なエラー）を追跡することができ、修正するのに役立ちます。
 
@@ -15,7 +15,7 @@ Firebase Crashlyticsはリアルタイムなクラッシュレポートツール
 どのクラスのどの行でクラッシュしたか、iOSの特定のバージョンの問題なのか、どれくらい起きているのか等を確認できます。
 何らかのタイミングでクラッシュが急増した場合にも、メール等で自動通知してくれます。
 
-## Firebase Performance Monitoring
+== Firebase Performance Monitoring
 
 iOS/Androidアプリのパフォーマンスを自動で収集し、Firebaseにレポートしてくれる便利なライブラリ
 
@@ -37,7 +37,7 @@ iOS/Androidアプリのパフォーマンスを自動で収集し、Firebaseに�
 - https://techblog.tokubai.co.jp/entry/kaizen-ux-lead-by-engineer
 
 
-## Firebase RemoteConfig
+== Firebase RemoteConfig
 
 アプリのアップデートをしなくてもリアルタイムでアプリ内の動作や外観を変えることができる便利なツール
 
@@ -53,7 +53,7 @@ iOS/Androidアプリのパフォーマンスを自動で収集し、Firebaseに�
 navigationController.backgroundColor = RemoteConfigManager.shared.appThemeColor ?? .white // RemoteConfigの値が取得できなかった場合に白
 ```
 
-## Firebase Authentication
+== Firebase Authentication
 
 サービス内で匿名ユーザーログイン、メールアドレス＋パスワードログイン、Googleアカウント連携、Twitterアカウント連携等といった実装を簡単に行えるような仕組み
 
