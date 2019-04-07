@@ -24,6 +24,7 @@ AppleによるUI設計の原則を定めたガイドライン。なんかイマ�
 //emlist[]{
 V. Prefer local over remote
 できるだけバックエンドなしで動作するように iOS アプリをスマートに保つ
+//}
 
 -- （中略)
 
