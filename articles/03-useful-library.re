@@ -9,22 +9,22 @@ Rubyで作られているiOS/MacOS向けのライブラリ管理ツール。オ�
 
 CocoaPodsをPCに導入するにはterminalを開いて、次のコマンドを実行
 
-```
+//emlist[]{
 sudo gem install cocoapods
 pod setup
-```
+//}
 
 その後、terminalでXcodeプロジェクトの階層へ移動し、次のコマンドを実行
 
-```
+//emlist[]{
 pod init
-```
+//}
 
 これでライブラリ管理する準備は完了！あとは生成された `Podfile` ファイルにどのライブラリをインストールするか記述していきます。
 
 例えば、PKHUD (https://github.com/pkluz/PKHUD) というライブラリを導入したい場合、Podfileを次のように編集します。
 
-```
+//emlist[]{
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'MiruCall_Swift' do
@@ -32,13 +32,13 @@ target 'MiruCall_Swift' do
 
   pod 'PKHUD'
 end
-```
+//}
 
 その後、次のコマンドでライブラリの更新とインストールを行います。
 
-```
+//emlist[]{
 pod update
-```
+//}
 
 このコマンドを打つと、インストールするライブラリのバージョンと、それをどこからとってくるか・・・等が`Podfile.lock` というファイルに記録されて出力されます。
 `pod install` コマンドを実行すると、この `Podfile.lock`の中身を参照して、書かれているバージョンにあわせてライブラリを自動でインストールできます。
@@ -68,23 +68,23 @@ https://github.com/mac-cain13/R.swift
 
 例えば、いま開発中のプロジェクト内で画像、ViewControllerを扱うときに次のような書き方をしている場合
 
-```
+//emlist[]{
 let icon = UIImage(named: "settings-icon")
 let font = UIFont(name: "San Francisco", size: 42)
 let color = UIColor(named: "indictator highlight")
 let viewController = CustomViewController(nibName: "CustomView", bundle: nil)
 let string = String(format: NSLocalizedString("welcome.withName", comment: ""), locale: NSLocale.current, "Arthur Dent")
-```
+//}
 
 R.swiftを使うことで、次のようにタイプセーフに扱うことができるようになります。
 
-```
+//emlist[]{
 let icon = R.image.settingsIcon()
 let font = R.font.sanFrancisco(size: 42)
 let color = R.color.indicatorHighlight()
 let viewController = CustomViewController(nib: R.nib.customView)
 let string = R.string.localizable.welcomeWithName("Arthur Dent")
-```
+//}
 
 ライブラリの導入に少し手順がありますが、導入するとタイプセーフにリソースを扱えるようになるので、typoのミスを極力減らせます！
 
@@ -106,7 +106,7 @@ GithubのSwift Style Guide (https://github.com/github/swift-style-guide)に基�
 
 次のように扱えます。
 
-```
+//emlist[]{
 // 例えば、このようにテキストから日付に設定できたり
 let _ = "2010-05-20 15:30".toDate("yyyy-MM-dd HH:mm")
 // 次のように日付計算できたり
@@ -121,7 +121,7 @@ let _ = date.compare(.isNextWeek)
 let _ = date.compare(.isThisMonth)
 let _ = date.compare(.startOfWeek)
 let _ = date.compare(.isNextYear)
-```
+//}
 
 日付によってXXしたい、N時間後にXしたい等、日付に関わる処理をしたいときに便利！
 

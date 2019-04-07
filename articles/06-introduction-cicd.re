@@ -45,7 +45,7 @@ iOS/Androidアプリ開発者向けのCI/CD用ライブラリ
 
 今回は、試しにTestflightへコマンド一発でデプロイできる仕組みを作ってみます。まずはプロジェクトにfastlaneを導入するため、次のコマンド郡を実行してください。
 
-```
+//emlist[]{
 # xcode commandline toolの導入
 xcode-select --install
 # RubyGems を利用してのインストール
@@ -54,11 +54,11 @@ sudo gem install fastlane -NV
 cd YOUR_XCODE_PROJECT
 # fastlaneの導入
 fastlane init
-```
+//}
 
 自動でセットアップすることもできますが、今回はマニュアルでセットアップしていきます。
 
-```
+//emlist[]{
 ryo-takahashi@~/workspace/ios/MiruCall_Swift[introduce-fastlane]> fastlane init
 [✔] 🚀
 [✔] Looking for iOS and Android projects in current directory...
@@ -75,7 +75,7 @@ ryo-takahashi@~/workspace/ios/MiruCall_Swift[introduce-fastlane]> fastlane init
 3. 🚀  Automate App Store distribution
 4. 🛠  Manual setup - manually setup your project to automate your tasks
 ?
-```
+//}
 
 4（マニュアルセットアップ）を入力したあと、各種ファイルの自動生成とfastlaneのイロイロについての説明が色々出力されるので基本Enter連打で進めて下さい。完了すると、次のようなファイル群が生成されます。
 
@@ -93,7 +93,7 @@ ryo-takahashi@~/workspace/ios/MiruCall_Swift[introduce-fastlane]> fastlane init
 
 試しに、自動でテストを走らせるlaneを定義してみます。その場合は、Fastfileを開き次のように編集します
 
-```
+//emlist[]{
 default_platform(:ios)
 
 platform :ios do
@@ -102,17 +102,17 @@ platform :ios do
     run_tests # 実行する処理、actionと呼ばれている
   end
 end
-```
+//}
 
 その後、次のコマンドを入力すると自動でテストが走ります
 
-```
+//emlist[]{
 fastlane test
-```
+//}
 
 また、actionはもっとカスタマイズすることができます。
 
-```
+//emlist[]{
 platform :ios do
   desc "test"
   lane :test do
@@ -122,6 +122,6 @@ platform :ios do
     )
   end
 end
-```
+//}
 
 他にも、AppleStoreへの自動デプロイ、Testflightへの自動デプロイ等いくつかactionが用意されています。詳しくはドキュメントをご参照下さい。(https://docs.fastlane.tools/actions/)

@@ -47,11 +47,11 @@ iOS/Androidアプリのパフォーマンスを自動で収集し、Firebaseに�
 主に機能をユーザ属性別（性別、国、年代等）に出したり、新機能を段階公開できたり、ABテストをやりたいときに使用します。
 例えば、次のように書くことができます。
 
-```
+//emlist[]{
 // 前提: RemoteConfigで取得したデータを管理するRemoteConfigManagerというシングルトンインスタンスがある
 // やりたいこと: 性別ごとに一部レイアウトの色が変わるようにしてみたい
 navigationController.backgroundColor = RemoteConfigManager.shared.appThemeColor ?? .white // RemoteConfigの値が取得できなかった場合に白
-```
+//}
 
 == Firebase Authentication
 
@@ -61,23 +61,23 @@ navigationController.backgroundColor = RemoteConfigManager.shared.appThemeColor 
 
 一時的な匿名ユーザーでのログインは、次のような書き方で行うことができます
 
-```
+//emlist[]{
 Auth.auth().signInAnonymously() { (authResult, error) in
   let user = authResult.user
   let isAnonymous = user.isAnonymous  // true
   let uid = user.uid
 }
-```
+//}
 
 メールアドレスとパスワードを使ってサインアップしたいときは次のような書き方でできます。（※匿名ユーザからの引き継ぎではないので注意）
 
-```
+//emlist[]{
 Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
   guard let user = authResult?.user else { return }
   let user = authResult.user
   let isAnonymous = user.isAnonymous  // false
   let uid = user.uid
 }
-```
+//}
 
 同様に、Google連携やTwitter連携も簡単にできるのでドキュメントを参照してみてください。
