@@ -7,8 +7,8 @@ Firebaseのサービスはいくつかありますが、その中でもモバイ
 
 Firebase Crashlyticsはリアルタイムなクラッシュレポートツールで、アプリの品質を低下する要因（クラッシュや非重大なエラー）を追跡することができ、修正するのに役立ちます。
 
-- Firebase Crashlytics
-- https://firebase.google.com/docs/crashlytics/?hl=ja
+  * Firebase Crashlytics
+  * https://firebase.google.com/docs/crashlytics/?hl=ja
 
 例えば、これを導入してビルド、インストールしたアプリにクラッシュが起きると自動でレポートがFirebaseに蓄積されていきます。次のようにFirebaseのCrashlytics項目を選択すると確認できます。
 
@@ -19,30 +19,30 @@ Firebase Crashlyticsはリアルタイムなクラッシュレポートツール
 
 iOS/Androidアプリのパフォーマンスを自動で収集し、Firebaseにレポートしてくれる便利なライブラリ
 
-- Firebase Performance Monitoring
-- https://firebase.google.com/docs/perf-mon/?hl=ja
+  * Firebase Performance Monitoring
+  * https://firebase.google.com/docs/perf-mon/?hl=ja
 
 主に、次のような指標を収集します。
 
-- レンダリングの速さ
-- ネットワークレスポンス
-- 起動時の所要時間 ex. 中央値
+  * レンダリングの速さ
+  * ネットワークレスポンス
+  * 起動時の所要時間 ex. 中央値
 
 // TODO: - 参考画像
 
 ここからさらに端末別、OS別、国別等でフィルタリングして表示することができます。
 また、このツールを使ってパフォーマンス改善したという記事を弊社のテックブログで公開しています。興味がある方は見てみてください！
 
-- エンジニアドリブンでユーザー体験を約250％改善した話
-- https://techblog.tokubai.co.jp/entry/kaizen-ux-lead-by-engineer
+  * エンジニアドリブンでユーザー体験を約250％改善した話
+  * https://techblog.tokubai.co.jp/entry/kaizen-ux-lead-by-engineer
 
 
 == Firebase RemoteConfig
 
 アプリのアップデートをしなくてもリアルタイムでアプリ内の動作や外観を変えることができる便利なツール
 
-- https://firebase.google.com/docs/remote-config/?hl=ja
-- Firebase RemoteConfig
+  * https://firebase.google.com/docs/remote-config/?hl=ja
+  * Firebase RemoteConfig
 
 主に機能をユーザ属性別（性別、国、年代等）に出したり、新機能を段階公開できたり、ABテストをやりたいときに使用します。
 例えば、次のように書くことができます。
@@ -57,7 +57,7 @@ navigationController.backgroundColor = RemoteConfigManager.shared.appThemeColor 
 
 サービス内で匿名ユーザーログイン、メールアドレス＋パスワードログイン、Googleアカウント連携、Twitterアカウント連携等といった実装を簡単に行えるような仕組み
 
-- https://firebase.google.com/docs/auth/?hl=ja
+  * https://firebase.google.com/docs/auth/?hl=ja
 
 一時的な匿名ユーザーでのログインは、次のような書き方で行うことができます
 

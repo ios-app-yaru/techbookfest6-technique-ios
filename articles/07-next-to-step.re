@@ -4,11 +4,11 @@
 
 と、その前にここまででやってきたことを少し振り返ってみます。
 
-- ライブラリ管理ツールの導入 (Cocoapods, Carthage)
-- ライブラリの導入 (R.swift, Nuke等)
-- 品質向上のためのツール導入（Crashlytics、Performance Monitorning等）
-- テスト (XCTest, Quick)
-- CI/CD (Bitrise, fastlane)
+  * ライブラリ管理ツールの導入 (Cocoapods, Carthage)
+  * ライブラリの導入 (R.swift, Nuke等)
+  * 品質向上のためのツール導入（Crashlytics、Performance Monitorning等）
+  * テスト (XCTest, Quick)
+  * CI/CD (Bitrise, fastlane)
 
 ここまででは、アプリ開発のおけるいわゆる基盤といった部分を支える仕組みを導入してきました。
 では、基盤を整えたら次は何をするか？そう、グロースです。

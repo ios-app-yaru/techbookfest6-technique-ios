@@ -45,11 +45,11 @@ pod update
 
 使い分けの例
 
-- `pod install` 
-  - 新たにチームメンバーが増えたときに環境を揃えられる
-    - プロジェクトを `git clone` して `pod install`
-- `pod update`
-  - ライブラリのバージョンをアップデートしたい
+  * `pod install` 
+  * 新たにチームメンバーが増えたときに環境を揃えられる
+  * プロジェクトを `git clone` して `pod install`
+  * `pod update`
+  * ライブラリのバージョンをアップデートしたい
 
 == Carthage
 
@@ -91,7 +91,7 @@ let string = R.string.localizable.welcomeWithName("Arthur Dent")
 == SwiftLint
 
 オープンソースの静的解析ツール
-- https://github.com/realm/SwiftLint
+  * https://github.com/realm/SwiftLint
 
 GithubのSwift Style Guide (https://github.com/github/swift-style-guide)に基づいてSwiftのコードスタイルを強制してくれるツールです。
 
@@ -101,8 +101,8 @@ GithubのSwift Style Guide (https://github.com/github/swift-style-guide)に基�
 
 == SwiftDate
 
-- オープンソースの日付パース、フォーマット、カスタム日付作成がSwiftで簡単にできるようになるライブラリ
-- https://github.com/malcommac/SwiftDate
+  * オープンソースの日付パース、フォーマット、カスタム日付作成がSwiftで簡単にできるようになるライブラリ
+  * https://github.com/malcommac/SwiftDate
 
 次のように扱えます。
 
@@ -127,8 +127,8 @@ let _ = date.compare(.isNextYear)
 
 == PKHUD
 
-- 簡単にいろいろなHUDを表示できるライブラリ
-- https://github.com/pkluz/PKHUD
+  * 簡単にいろいろなHUDを表示できるライブラリ
+  * https://github.com/pkluz/PKHUD
 
 処理中、成功、失敗等のHUDを簡単に表示できるライブラリ。
 
@@ -136,8 +136,8 @@ let _ = date.compare(.isNextYear)
 
 == Nuke
 
-- 画像読み込み、キャッシュライブラリ
-- https://github.com/kean/Nuke
+  * 画像読み込み、キャッシュライブラリ
+  * https://github.com/kean/Nuke
 
 2019年4月現在、周りでよく使われている印象があります👀
 ImagePipelineという仕組みがとても便利で、簡単に画像取得の優先度を設定できたりタスクのキャンセルが行えます。筆者が扱っているプロダクトでは、以前はSDWebImageを使っていたのですが、それよりもNukeを使ったほうが画像表示が早く扱いやすく、すぐに乗り換えました。

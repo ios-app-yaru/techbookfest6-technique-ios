@@ -3,30 +3,30 @@
 
 モバイルアプリケーション用のCI/CDサービス
 
-- Bitrise
-- https://www.bitrise.io/
+  * Bitrise
+  * https://www.bitrise.io/
 
 === 用語解説
 
-- CI (Continuous Integration) 継続的インテグレーション
-  - 例: PullRequestの作成時やmasterブランチ変更時に自動ビルドとテストを実行し、品質の安定を図る
-- CD (Continuous Delivery) 継続的デリバリー
-  - 例: masterブランチが変更されるたびに自動でビルドし、自動でテスターに配布する
+  * CI (Continuous Integration) 継続的インテグレーション
+  ** 例: PullRequestの作成時やmasterブランチ変更時に自動ビルドとテストを実行し、品質の安定を図る
+  * CD (Continuous Delivery) 継続的デリバリー
+  ** 例: masterブランチが変更されるたびに自動でビルドし、自動でテスターに配布する
 
 === 使い方
 
 ※この本が出版された後に手順が変わる可能性があるので、大体の手続きだけ説明します
 
-- アカウントの作成
-- アプリを登録する（アプリ名とか）
-- リポジトリを登録する (optional: Github連携)
-- ブランチを選択 (ex. master)
+  * アカウントの作成
+  * アプリを登録する（アプリ名とか）
+  * リポジトリを登録する (optional: Github連携)
+  * ブランチを選択 (ex. master)
 
 アプリの登録が終わると、次は自動ビルド時に使う用の証明書をBitriseサービスに登録します。
 
-- アプリ > Workflow > Code Signingを開く
-- PROVISIONING PROFILEセクションに.mobileprovisionファイルをドラッグしてアップロード
-- CODE SIGNING IDENTITYセクションに.p12ファイルをドラッグしてアップロード
+  * アプリ > Workflow > Code Signingを開く
+  * PROVISIONING PROFILEセクションに.mobileprovisionファイルをドラッグしてアップロード
+  * CODE SIGNING IDENTITYセクションに.p12ファイルをドラッグしてアップロード
 
 その後、`Start/Schedule` ボタンを押してbranchを`master`にすると自動ビルドが走ります。
 自動ビルド後にテストを走らせたいだとか、Slackに結果を送信したい・・・といったことをしたい場合は `Workflows`を開き、適当にポチポチと追加していくだけで実現できます。
@@ -35,9 +35,9 @@
 
 iOS/Androidアプリ開発者向けのCI/CD用ライブラリ
 
-- Fastlane
-- https://github.com/fastlane/fastlane
-- https://docs.fastlane.tools/
+  * Fastlane
+  * https://github.com/fastlane/fastlane
+  * https://docs.fastlane.tools/
 
 スクリーンショットの作成、ProvisioningProfileの処理、アプリのデプロイ、リリース等の作業を自動化できます。
 
@@ -79,17 +79,17 @@ ryo-takahashi@~/workspace/ios/MiruCall_Swift[introduce-fastlane]> fastlane init
 
 4（マニュアルセットアップ）を入力したあと、各種ファイルの自動生成とfastlaneのイロイロについての説明が色々出力されるので基本Enter連打で進めて下さい。完了すると、次のようなファイル群が生成されます。
 
-- fastlane/Appfile
-  - AppleIDやアプリのBundleIdentifierを定義
-- fastlane/Fastfile
-  - 自動化処理を記述
-  - 各種laneを定義
-    - lane➔１つ１つの自動化処理の名前のようなもの
-    - 自動デプロイするlane、自動スクショ撮るlane、自動テストするlane等
+  * fastlane/Appfile
+  ** AppleIDやアプリのBundleIdentifierを定義
+  * fastlane/Fastfile
+  ** 自動化処理を記述
+  ** 各種laneを定義
+  *** lane➔１つ１つの自動化処理の名前のようなもの
+  *** 自動デプロイするlane、自動スクショ撮るlane、自動テストするlane等
 
 前提
-- Apple Developer > IdentifiersでアプリのIDを登録している
-- Apple DeveloperでアプリのProvisioning Profileを作成している
+  * Apple Developer > IdentifiersでアプリのIDを登録している
+  * Apple DeveloperでアプリのProvisioning Profileを作成している
 
 試しに、自動でテストを走らせるlaneを定義してみます。その場合は、Fastfileを開き次のように編集します
 
