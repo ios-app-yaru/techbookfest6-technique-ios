@@ -1,4 +1,4 @@
-= ライブラリ
+= ライブラリ
 == CocoaPods
 Rubyで作られているiOS/MacOS向けのライブラリ管理ツール。オープンソースプロジェクトであり、GitHub上で有志によって開発されている (https://github.com/CocoaPods/CocoaPods) 
 いちいちGitHubからライブラリをダウンロードして導入しなくても、これを使うことによって自動で依存を解決しつつ、ライブラリをプロジェクトに簡単に導入することができるようになる。
@@ -95,13 +95,13 @@ let string = R.string.localizable.welcomeWithName("Arthur Dent")
 
 GithubのSwift Style Guide (https://github.com/github/swift-style-guide)に基づいてSwiftのコードスタイルを強制してくれるツールです。
 
-例えば、次のようにコード規約に反したコードを書いたときに自動的に指摘をしてくれるようになります。
+例えば、次のようにコード規約に反したコードを書いたときに自動的に指摘をしてくれるようになります。
 
 チーム開発では必須ですね
 
 == SwiftDate
 
-  * オープンソースの日付パース、フォーマット、カスタム日付作成がSwiftで簡単にできるようになるライブラリ
+  * オープンソースの日付パース、フォーマット、カスタム日付作成がSwiftで簡単にできるようになるライブラリ
   * https://github.com/malcommac/SwiftDate
 
 次のように扱えます。
@@ -139,5 +139,5 @@ let _ = date.compare(.isNextYear)
   * 画像読み込み、キャッシュライブラリ
   * https://github.com/kean/Nuke
 
-2019年4月現在、周りでよく使われている印象があります👀
+2019年4月現在、周りでよく使われている印象があります👀
 ImagePipelineという仕組みがとても便利で、簡単に画像取得の優先度を設定できたりタスクのキャンセルが行えます。筆者が扱っているプロダクトでは、以前はSDWebImageを使っていたのですが、それよりもNukeを使ったほうが画像表示が早く扱いやすく、すぐに乗り換えました。

@@ -1,7 +1,7 @@
 = CI/CD
 == Bitrise
 
-モバイルアプリケーション用のCI/CDサービス
+モバイルアプリケーション用のCI/CDサービス
 
   * Bitrise
   * https://www.bitrise.io/
@@ -11,7 +11,7 @@
   * CI (Continuous Integration) 継続的インテグレーション
   ** 例: PullRequestの作成時やmasterブランチ変更時に自動ビルドとテストを実行し、品質の安定を図る
   * CD (Continuous Delivery) 継続的デリバリー
-  ** 例: masterブランチが変更されるたびに自動でビルドし、自動でテスターに配布する
+  ** 例: masterブランチが変更されるたびに自動でビルドし、自動でテスターに配布する
 
 === 使い方
 
