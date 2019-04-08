@@ -3,9 +3,6 @@
 
 XcodeでiOSアプリを効率的に開発する上で習得必須な便利ショートカットをここで紹介していきます。
 
-caps lock -> control
-control -> command
-
 === Build周り
   * Command + B
   ** ビルド
@@ -56,5 +53,9 @@ control -> command
   * Command + Shift + H
   ** ホーム画面に戻る
 
-=== Project Settings
-  * production schemaとproduction-debug schemaとDebug schemaを作成する方法について
+=== デバッグ術 WIP
+
+ブレークポイントの貼り方
+ブレークポイントで一時停止させずに変数の結果だけ出力させる
+ブレークポイントで一時停止させて変数の中身を見る
+ブレークポイントで一時停止させて変数に代入する
