@@ -4,13 +4,23 @@
 
 == Human Interface Guidelines
 
-  * Human Interface Guidelines (https://developer.apple.com/design/human-interface-guidelines/)
+  * Human Interface Guidelines
+  * https://developer.apple.com/design/human-interface-guidelines/
   * 以下、HIG
 
-AppleによるUI設計の原則を定めたガイドライン。なんかイマイチなUIだな〜、使い心地良くないな〜・・・と感じるのであれば、一度見てみましょう。感じていなくても、見ましょう！
-例えば、次のようなことが書かれています。
+AppleによるUI設計の原則を定めたガイドライン。macOS、watchOS、tvOS、iOSアプリ開発におけるUIの原則や思想等が書かれています。
 
-  * 2個くらい紹介する
+例えば、NavigationControllerのTitleBarにLargeTitlesを使うのはどういう時か？（Clockアプリのようなタブ付きのわかりやすいレイアウトがある場合はいらない）とか
+
+//image[01/hug-titlebar.png][TitleBarの扱い]{
+//}
+
+ステータスバー、NavigationBarはどういうときに隠すのか？（ex. ユーザーに没入感をもたせたい時）等、なぜそのUIがそうなのか？そのUIはこういうときに使うといったガイドラインが詳しく書かれています。
+
+//image[01/hug-status-bar.png][ステータスバーの扱い]{
+//}
+
+なんかイマイチなUIだな〜、使い心地良くないな〜・・・と感じるのであれば、一度見てみましょう。感じていなくても、見ましょう！
 
 == iOSアプリ開発ベストプラクティス
 
@@ -24,7 +34,6 @@ AppleによるUI設計の原則を定めたガイドライン。なんかイマ�
 //emlist[]{
 V. Prefer local over remote
 できるだけバックエンドなしで動作するように iOS アプリをスマートに保つ
-//}
 
 -- （中略)
 
@@ -36,10 +45,10 @@ V. Prefer local over remote
 スケーリング：アプリが流行った場合は、バックエンドサービスをスケールアップする責任がある
 バッテリ寿命：モバイルデータを使うとバッテリを浪費する
 信頼性：まだ信頼性の低い LTE/3G 回線を持つ国がある
-}
+//}
 
 == Swift実践入門 ── 直感的な文法と安全性を兼ね備えた言語 (WEB+DB PRESS plus)
 
   * 技術評論社より出版
 
-Swiftとはなんぞや？というところから、言語仕様解説、実際の業務でどう使うか？まで解説していて、初心者〜上級者までこれ１冊でいけるといっても過言ではないくらい良い本です。必須。実際、著者（僕）もiOSアプリ開発に入門するときに一番最初に購入しました。
+Swiftとはなんぞや？というところから、言語仕様解説、実際の業務でどう使うか？まで解説していて、初心者〜上級者までこれ１冊でいけるといっても過言ではないくらい良い本です。必須。実際、著者（僕）もiOSアプリ開発に入門するときに一番最初に購入していて、今でも参照することがあります。
