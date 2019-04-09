@@ -105,9 +105,36 @@ let string = R.string.localizable.welcomeWithName("Arthur Dent")
 
 GithubのSwift Style Guide (https://github.com/github/swift-style-guide)に基づいてSwiftのコードスタイルをフォーマットしてくれるツールです。
 
-例えば、次のようにコード規約に反したコードを書いたときに自動的に指摘をしてくれるようになります。
+例えば、次のようにコードスタイルガイドに反したコードを書いたときに自動的に指摘をしてくれます。
 
-チーム開発では必須ですね
+//img[03/swiftlint-example][Swiftlintを実行した時の指摘]{
+//}
+
+チーム開発では必須ですね！
+
+デフォルトだと、自分のプロダクトのコード以外にもCocoaPodで導入したライブラリのコードに対してもLintをかけてしまうので、プロジェクトの配下に@<b>{.swiftlint.yml}という名前で設定ファイルを作り、中身を次のように書き換えて下さい。
+
+//emlist[]{
+# lint対象とするディレクトリ
+included:
+  - [あなたのプロジェクトの.swiftファイル群が置かれているディレクトリを指定]
+# デフォルトのlint設定は、force castはコンパイルエラーレベルにしているが、warning（黄色いやつ）レベルまでに変更したいときにはこう書く
+force_cast: warning
+# 上と同じような感じ
+force_try:
+  severity: warning
+# 変数名のlintの除外パターン指定
+variable_name:
+  excluded:
+    - e
+    - id
+# １つの関数の行数制限
+# 80−100まではwarning(黄色）
+# 100以上はコンパイルエラー
+function_body_length:
+  - 80
+  - 100
+//}
 
 == SwiftDate
 
@@ -144,10 +171,14 @@ let _ = date.compare(.isNextYear)
 
 例えば、次のように表示させることができます。（アニメーション付き）
 
+//image[03/pkhud-example][PKHUDで使えるHUD集]{
+//}
+
 == Nuke
 
   * 画像読み込み、キャッシュライブラリ
   * https://github.com/kean/Nuke
 
-2019年4月現在、周りでよく使われている印象があります👀
-ImagePipelineという仕組みがとても便利で、簡単に画像取得の優先度を設定できたりタスクのキャンセルが行えます。筆者が扱っているプロダクトでは、以前はSDWebImageを使っていたのですが、それよりもNukeを使ったほうが画像表示が早く扱いやすく、すぐに乗り換えました。
+ImagePipelineという仕組みがとても便利で、簡単に画像取得の優先度を設定できたりタスクのキャンセルが行えます。
+
+筆者が扱っているプロダクトでは、以前はSDWebImageを使っていたのですが、それよりもNukeを使ったほうが画像表示が早く扱いやすかったので乗り換えました。
