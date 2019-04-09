@@ -171,7 +171,7 @@ let _ = date.compare(.isNextYear)
 
 例えば、次のように表示させることができます。（アニメーション付き）
 
-//image[03/pkhud-example][PKHUDで使えるHUD集]{
+//image[03/pkhud-example.png][PKHUDで使えるHUD集]{
 //}
 
 == Nuke
