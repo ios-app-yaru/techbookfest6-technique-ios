@@ -76,11 +76,10 @@ fastlane init
 自動でセットアップすることもできますが、今回はマニュアルでセットアップしていきます。
 
 //emlist[]{
-ryo-takahashi@~/workspace/ios/MiruCall_Swift[introduce-fastlane]> fastlane init
 [✔] 🚀
 [✔] Looking for iOS and Android projects in current directory...
 [23:20:43]: Created new folder './fastlane'.
-[23:20:43]: Detected an iOS/macOS project in the current directory: 'MiruCall_Swift.xcworkspace'
+[23:20:43]: Detected an iOS/macOS project in the current directory: 'あなたのプロジェクト名.xcworkspace'
 [23:20:43]: -----------------------------
 [23:20:43]: --- Welcome to fastlane 🚀 ---
 [23:20:43]: -----------------------------
@@ -101,12 +100,8 @@ ryo-takahashi@~/workspace/ios/MiruCall_Swift[introduce-fastlane]> fastlane init
   * fastlane/Fastfile
   ** 自動化処理を記述
   ** 各種laneを定義
-  *** lane➔１つ１つの自動化処理の名前のようなもの
-  *** 自動デプロイするlane、自動スクショ撮るlane、自動テストするlane等
-
-前提
-  * Apple Developer > IdentifiersでアプリのIDを登録している
-  * Apple DeveloperでアプリのProvisioning Profileを作成している
+  *** lane -> １つ１つの自動化処理の名前のようなもの
+  *** 自動デプロイするlane、自動スクショ撮るlane、自動テストするlane等いろいろあります。
 
 試しに、自動でテストを走らせるlaneを定義してみます。その場合は、Fastfileを開き次のように編集します
 
@@ -116,7 +111,7 @@ default_platform(:ios)
 platform :ios do
   desc "test"
   lane :test do
-    run_tests # 実行する処理、actionと呼ばれている
+    run_tests # 実行する処理　actionと呼ばれている
   end
 end
 //}
@@ -142,3 +137,49 @@ end
 //}
 
 他にも、AppleStoreへの自動デプロイ、Testflightへの自動デプロイ等いくつかactionが用意されています。詳しくはドキュメントをご参照下さい。(https://docs.fastlane.tools/actions/)
+
+最後に、筆者の個人開発アプリのFastfileの中身を一部ここで紹介します。参考になれば嬉しいです！
+
+//emlist[]{
+default_platform(:ios)
+
+platform :ios do
+
+  desc "Submit App to Fabric Beta"
+  lane :beta do
+    build_app(
+      scheme: "Production-Debug",
+      configuration: "Release-Adhoc",
+      export_method: "ad-hoc"
+    )
+    crashlytics(
+      api_token: "YOUR_TOKEN",
+      build_secret: "YOUR_SECRET_KEY",
+      groups: "development"
+    )
+    slack(
+      slack_url: "https://hooks.slack.com/services/YOUR_SLACK_INCOMING_HOOK_URL",
+      channel: "#notify",
+      username: "fastlane"
+    )
+  end
+
+  lane :release do
+    build_app(
+      scheme: "Production",
+      configuration: "Release-AppStore",
+      workspace: "YOUR_PROJECT_NAME.xcworkspace",
+      export_method: "app-store",
+      include_bitcode: true
+    )
+    upload_to_app_store
+    slack(
+      slack_url: "YOUR_SLACK_INCOMING_HOOK_URL",
+      channel: "#notify",
+      username: "fastlane"
+    )
+  end
+
+end
+
+//}
