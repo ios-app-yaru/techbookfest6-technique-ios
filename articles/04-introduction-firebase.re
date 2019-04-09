@@ -10,28 +10,31 @@ Firebase Crashlyticsはリアルタイムなクラッシュレポートツール
   * Firebase Crashlytics
   * https://firebase.google.com/docs/crashlytics/?hl=ja
 
-例えば、これを導入してビルド、インストールしたアプリにクラッシュが起きると自動でレポートがFirebaseに蓄積されていきます。次のようにFirebaseのCrashlytics項目を選択すると確認できます。
+例えば、これを導入してビルド、インストールしたアプリにクラッシュが起きると自動でレポートがFirebaseに送信され、蓄積されていきます。
+次のようにFirebaseのCrashlytics項目を選択すると確認ができます。
+
+//image[04/firebase-crashlytics][Firebase Crashlytivsの画面]
 
 どのクラスのどの行でクラッシュしたか、iOSの特定のバージョンの問題なのか、どれくらい起きているのか等を確認できます。
 何らかのタイミングでクラッシュが急増した場合にも、メール等で自動通知してくれます。
 
 == Firebase Performance Monitoring
 
-iOS/Androidアプリのパフォーマンスを自動で収集し、Firebaseにレポートしてくれる便利なライブラリ
+iOS/Androidアプリのパフォーマンスを自動で収集し、Firebaseにレポートしてくれる便利なサービス
 
   * Firebase Performance Monitoring
   * https://firebase.google.com/docs/perf-mon/?hl=ja
 
-主に、次のような指標を収集します。
+主に、次のような指標を収集し、閲覧できます。
 
   * レンダリングの速さ
   * ネットワークレスポンス
-  * 起動時の所要時間 ex. 中央値
+  * 起動時の所要時間 (ex. 中央値)
 
 #@# TODO: - 参考画像
 
 ここからさらに端末別、OS別、国別等でフィルタリングして表示することができます。
-また、このツールを使ってパフォーマンス改善したという記事を弊社のテックブログで公開しています。興味がある方は見てみてください！
+また、このツールを使ってパフォーマンス改善したという記事を筆者が現在所属している会社のテックブログで公開しています。興味がある方はぜひ見てみてください！
 
   * エンジニアドリブンでユーザー体験を約250％改善した話
   * https://techblog.tokubai.co.jp/entry/kaizen-ux-lead-by-engineer
@@ -48,14 +51,26 @@ iOS/Androidアプリのパフォーマンスを自動で収集し、Firebaseに�
 例えば、次のように書くことができます。
 
 //emlist[]{
-// 前提: RemoteConfigで取得したデータを管理するRemoteConfigManagerというシングルトンインスタンスがある
+// 前提: RemoteConfigで取得したデータを管理するRemoteConfigManagerというシングルトンインスタンスを作っておく
 // やりたいこと: 性別ごとに一部レイアウトの色が変わるようにしてみたい
-navigationController.backgroundColor = RemoteConfigManager.shared.appThemeColor ?? .white // RemoteConfigの値が取得できなかった場合に白
+navigationController.backgroundColor = RemoteConfigManager.shared.appThemeColor
+
+// やりたいこと: 購入ボタンのテキストとカラーのABテストをしたい
+purchaseButton.setTitle(RemoteConfig.shared.purchaseButtonTitle, for: .normal)
+purchaseButton.backgroundColor = RemoteConfig.shared.purchaseButtonColor
+
+// APIキーを誤って削除したときに即座に差し替えできるようにRemoteConfigにセットする
+let apikey = RemoteConfig.shared.apikey
+//}
+
+RemoteConfigには、次のように値を追加します。
+
+//image[05/firebase-remoteconfig][RemoteConfigの画面]{
 //}
 
 == Firebase Authentication
 
-サービス内で匿名ユーザーログイン、メールアドレス＋パスワードログイン、Googleアカウント連携、Twitterアカウント連携等といった実装を簡単に行えるような仕組み
+サービス内で匿名ユーザーログイン、メールアドレス＋パスワードログイン、Googleアカウント連携、Twitterアカウント連携等といった仕組みを簡単に実装できる便利ライブラリ・サービス
 
   * https://firebase.google.com/docs/auth/?hl=ja
 
