@@ -107,7 +107,7 @@ GithubのSwift Style Guide (https://github.com/github/swift-style-guide)に基�
 
 例えば、次のようにコードスタイルガイドに反したコードを書いたときに自動的に指摘をしてくれます。
 
-//image[03/swiftlint-example][Swiftlintを実行した時の指摘]{
+//image[03/swiftlint-example.png][Swiftlintを実行した時の指摘]{
 //}
 
 チーム開発では必須ですね！

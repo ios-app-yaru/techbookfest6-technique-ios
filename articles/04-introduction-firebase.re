@@ -13,7 +13,8 @@ Firebase Crashlyticsはリアルタイムなクラッシュレポートツール
 例えば、これを導入してビルド、インストールしたアプリにクラッシュが起きると自動でレポートがFirebaseに送信され、蓄積されていきます。
 次のようにFirebaseのCrashlytics項目を選択すると確認ができます。
 
-//image[04/firebase-crashlytics][Firebase Crashlytivsの画面]
+//image[04/firebase-crashlytics.png][Firebase Crashlytivsの画面]{
+//}
 
 どのクラスのどの行でクラッシュしたか、iOSの特定のバージョンの問題なのか、どれくらい起きているのか等を確認できます。
 何らかのタイミングでクラッシュが急増した場合にも、メール等で自動通知してくれます。
@@ -65,7 +66,7 @@ let apikey = RemoteConfig.shared.apikey
 
 RemoteConfigには、次のように値を追加します。
 
-//image[05/firebase-remoteconfig][RemoteConfigの画面]{
+//image[05/firebase-remoteconfig.png][RemoteConfigの画面]{
 //}
 
 == Firebase Authentication

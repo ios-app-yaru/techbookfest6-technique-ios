@@ -16,7 +16,7 @@
 サービス登録してワークフロー（githubからのclone、ビルド、テスト、デプロイ、Slack通知等）をポチポチと設定するだけでCI/CD環境が構築できる便利なサービス
 フリー版だと、直列ビルドでビルド時間にMAX10分等の制限がついているので注意です。※この本が出版された後に変わる可能性があります。
 
-//image[06-bitrise-pricing][Bitrise課金携帯]{
+//image[06-bitrise-pricing.png][Bitrise課金携帯]{
 //}
 
 初回登録時、次の作業が必要です。
@@ -31,18 +31,18 @@
   * アプリ > Workflow > Code Signingを開く
   * PROVISIONING PROFILEセクションに.mobileprovisionファイルをドラッグしてアップロード
 
-//image[06/bitrise-provisioning-profile][Provisioning Profileのアップロード]{
+//image[06/bitrise-provisioning-profile.png][Provisioning Profileのアップロード]{
 //}
 
   * CODE SIGNING IDENTITYセクションに.p12ファイルをドラッグしてアップロード
 
-//image[06/bitrise-codesigning][.p12ファイルのアップロード]{
+//image[06/bitrise-codesigning.png][.p12ファイルのアップロード]{
 //}
 
 次に、workflowを作ります。指定したブランチが更新されたときにどのようなアクションを取るか設定していきます。
 筆者の個人開発アプリでは次のようにしています。
 
-//image[06/bitrise-workflow][Bitrise workflow]{
+//image[06/bitrise-workflow.png][Bitrise workflow]{
 //}
 
 後は、masterブランチを更新したときに作ったworkflowが動けば成功！
