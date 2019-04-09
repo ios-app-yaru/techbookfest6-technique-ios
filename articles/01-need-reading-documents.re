@@ -2,7 +2,7 @@
 
 本章では、これからのiOSアプリ開発において、読んでおくべきだと感じたリファレンスや書物、サイトを紹介していきます。
 
-== Human Interface Guidelines
+== HumanInterfaceGuidelines
 
   * Human Interface Guidelines
   * https://developer.apple.com/design/human-interface-guidelines/
