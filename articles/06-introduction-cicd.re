@@ -13,24 +13,40 @@
   * Bitrise
   * https://www.bitrise.io/
 
+サービス登録してワークフロー（githubからのclone、ビルド、テスト、デプロイ、Slack通知等）をポチポチと設定するだけでCI/CD環境が構築できる便利なサービス
+フリー版だと、直列ビルドでビルド時間にMAX10分等の制限がついているので注意です。※この本が出版された後に変わる可能性があります。
 
-=== 使い方
+//image[06-bitrise-pricing][Bitrise課金携帯]{
+//}
 
-※この本が出版された後に手順が変わる可能性があります。
+初回登録時、次の作業が必要です。
 
   * アカウントの作成
   * アプリを登録する（アプリ名とか）
   * リポジトリを登録する (optional: Github連携)
   * ブランチを選択 (ex. master)
 
-アプリの登録が終わると、次は自動ビルド時に使う用の証明書をBitriseサービスに登録します。
+アプリの登録が終わったら、次は自動ビルド時に使う用の証明書をBitriseサービスに登録します。
 
   * アプリ > Workflow > Code Signingを開く
   * PROVISIONING PROFILEセクションに.mobileprovisionファイルをドラッグしてアップロード
+
+//image[06/bitrise-provisioning-profile][Provisioning Profileのアップロード]{
+//}
+
   * CODE SIGNING IDENTITYセクションに.p12ファイルをドラッグしてアップロード
 
-その後、`Start/Schedule` ボタンを押してbranchを`master`にすると自動ビルドが走ります。
-自動ビルド後にテストを走らせたいだとか、Slackに結果を送信したい・・・といったことをしたい場合は `Workflows`を開き、適当にポチポチと追加していくだけで実現できます。
+//image[06/bitrise-codesigning][.p12ファイルのアップロード]{
+//}
+
+次に、workflowを作ります。指定したブランチが更新されたときにどのようなアクションを取るか設定していきます。
+筆者の個人開発アプリでは次のようにしています。
+
+//image[06/bitrise-workflow][Bitrise workflow]{
+//}
+
+後は、masterブランチを更新したときに作ったworkflowが動けば成功！
+手動で動かす場合は、`Start/Schedule` ボタンを押してbranchを`master`にするとワークフローが走ります。
 
 == Fastlane
 
