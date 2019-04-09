@@ -12,12 +12,12 @@ AppleによるUI設計の原則を定めたガイドライン。macOS、watchOS�
 
 例えば、NavigationControllerのTitleBarにLargeTitlesを使うのはどういう時か？（Clockアプリのようなタブ付きのわかりやすいレイアウトがある場合はいらない）とか
 
-//image[01/hug-titlebar.png][TitleBarの扱い]{
+//image[hug-titlebar][TitleBarの扱い]{
 //}
 
 ステータスバー、NavigationBarはどういうときに隠すのか？（ex. ユーザーに没入感をもたせたい時）等、なぜそのUIがそうなのか？そのUIはこういうときに使うといったガイドラインが詳しく書かれています。
 
-//image[01/hug-status-bar.png][ステータスバーの扱い]{
+//image[hug-status-bar][ステータスバーの扱い]{
 //}
 
 なんかイマイチなUIだな〜、使い心地良くないな〜・・・と感じるのであれば、一度見てみましょう。感じていなくても、見ましょう！
