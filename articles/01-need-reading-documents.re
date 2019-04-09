@@ -10,7 +10,7 @@
 
 AppleによるUI設計の原則を定めたガイドライン。macOS、watchOS、tvOS、iOSアプリ開発におけるUIの原則や思想等が書かれています。
 
-例えば、NavigationControllerのTitleBarにLargeTitlesを使うのはどういう時か？（Clockアプリのようなタブ付きのわかりやすいレイアウトがある場合はいらない）とか
+例えば、NavigationControllerのTitleBarにLargeTitlesを使うのはどういうときか？（Clockアプリのようなタブ付きのわかりやすいレイアウトがある場合はいらない）とか
 
 //image[hug-titlebar][TitleBarの扱い]{
 //}

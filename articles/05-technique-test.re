@@ -125,7 +125,7 @@ end
 pod install
 //}
 
-先程のXCTestを使って書いたテストコードを、Quickを使って書き直してみます。
+さきほどのXCTestを使って書いたテストコードを、Quickを使って書き直してみます。
 
 //emlist[]{
 // Int+CommonTest.swift
