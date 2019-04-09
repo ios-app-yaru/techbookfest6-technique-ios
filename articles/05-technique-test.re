@@ -8,7 +8,7 @@
 
 特に何もライブラリを導入しなくても、標準のXcodeでも実行でき、次のようにテストを書いていきます。
 
-//emlist[]{ 
+//emlist[]{
 import XCTest
 @testable import test_sample
 
@@ -69,7 +69,7 @@ class IntCommonTest: XCTestCase {
         XCTAssertEqual(number.increment(), 1)
         XCTAssertEqual(number.increment().increment(), 2)
     }
-    
+
     func testDecrement() {
         let number = 0
         XCTAssertEqual(number.decrement(), -1)
@@ -86,7 +86,7 @@ class ArrayCommonTest: XCTestCase {
         let emptyArray: [Int] = []
         let oneArray: [Int] = [0]
         let twoArray: [Int] = [1,2]
-        
+
         XCTAssertFalse(emptyArray.isNotEmpty())
         XCTAssertTrue(oneArray.isNotEmpty())
         XCTAssertTrue(twoArray.isNotEmpty())
@@ -164,7 +164,7 @@ class ArrayCommonTest: QuickSpec {
                 let emptyArray: [Int] = []
                 let oneArray: [Int] = [0]
                 let twoArray: [Int] = [1,2]
-                
+
                 expect(emptyArray.isNotEmpty()).to(equal(false))
                 expect(oneArray.isNotEmpty()).to(equal(true))
                 expect(twoArray.isNotEmpty()).to(equal(true))
