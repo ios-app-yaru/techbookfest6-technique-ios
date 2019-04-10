@@ -75,6 +75,8 @@ Xcodeでビルド＆実行中にこの設定したブレークポイントの部
 //image[setup-auto-continue-action-break-point][ブレークポイントの詳細設定]{
 //}
 
+==== expression
+
 また、ブレークポイントで一時停止させている時に変数へ値を代入できます。
 一時停止したら@<b>{(lldb)}のところで@<code>{expression 変数 = 新しい変数}とやってみてください
 

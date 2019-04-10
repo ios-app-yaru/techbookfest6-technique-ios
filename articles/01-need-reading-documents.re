@@ -31,7 +31,7 @@ AppleによるUI設計の原則を定めたガイドライン。iOS、macOS、wa
 
 例えば、次のようなことが書かれています。
 
-//emlist[]{
+//quote{
 V. Prefer local over remote
 できるだけバックエンドなしで動作するように iOS アプリをスマートに保つ
 
