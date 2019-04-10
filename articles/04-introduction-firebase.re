@@ -13,7 +13,7 @@ Firebase Crashlyticsはリアルタイムなクラッシュレポートツール
 例えば、これを導入してビルド、インストールしたアプリにクラッシュが起きると自動でレポートがFirebaseに送信され、蓄積されていきます。
 次のようにFirebaseのCrashlytics項目を選択すると確認ができます。
 
-//image[firebase-crashlytics][Firebase Crashlytivsの画面]{
+//image[firebase-crashlytics][Firebase Crashlyticsの画面][scale=0.7]{
 //}
 
 どのクラスのどの行でクラッシュしたか、iOSの特定のバージョンの問題なのか、どれくらい起きているのか等を確認できます。

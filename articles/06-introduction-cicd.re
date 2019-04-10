@@ -45,7 +45,7 @@
 次に、workflowを作ります。指定したブランチが更新されたときにどのようなアクションを取るか設定していきます。
 筆者の個人開発アプリでは次のようにしています。
 
-//image[bitrise-workflow][Bitrise workflow]{
+//image[bitrise-workflow][Bitrise workflow][scale=0.6]{
 //}
 
 後は、masterブランチを更新したときに作ったworkflowが動けば成功！
