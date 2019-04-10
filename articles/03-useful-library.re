@@ -1,15 +1,15 @@
-= ライブラリ
+= ライブラリ管理ツールと便利ライブラリ
 == CocoaPods
 Rubyで作られているiOS/MacOS向けのライブラリ管理ツール。オープンソースプロジェクトであり、GitHub上で有志によって開発されている
 
   * CocoaPods
   * https://github.com/CocoaPods/CocoaPods
 
-GitHubからライブラリをいちいちダウンロードして導入しなくても、これを使うことによって自動でライブラリ間の依存を解決しつつ、ライブラリをプロジェクトに簡単に導入することができるようになります。
+GitHubからライブラリをいちいちダウンロードして導入しなくても、これを使うことによって自動でライブラリ間の依存を解決しつつ、ライブラリをプロジェクトに簡単に導入できます。
 
 === 導入
 
-前提として、PCにrubyがインストールされている必要がありますが、MacOSではデフォルトで導入されているので、今回はRubyのインストールは省略します。
+前提として、PCにRubyがインストールされている必要がありますが、MacOSではデフォルトで導入されているので、今回はRubyのインストールは省略します。
 
 CocoaPodsをPCに導入するにはterminalを開いて、次のコマンドを実行して下さい。
 
@@ -45,8 +45,8 @@ end
 pod update
 //}
 
-このコマンドを打つと、インストールするライブラリのバージョンと、それをどこからとってくるか・・・等が @<b>{Podfile.lock} というファイルに記録されて出力されます。@<br>{}
-@<b>{pod install} コマンドを実行すると、この @<b>{Podfile.lock} の中身を参照して、書かれているバージョンにあわせてライブラリを自動でインストールできます。
+このコマンドを打つと、インストールするライブラリのバージョンと、それをどこからとってくるか・・・等が @<b>{Podfile.lock} に記録されて出力されます。@<br>{}
+@<b>{pod install} コマンドを実行すると、この @<b>{Podfile.lock} の中身を参照して、書かれているバージョンにあわせてライブラリを自動でインストールします。
 
 使い分けの例
 
@@ -60,19 +60,17 @@ pod update
 
 前節で説明したものと同じようなライブラリ管理ツールとしてCarthage（カーセッジ、カルタゴ）があります。こちらはSwiftで作られていて、同じようにオープンソースプロジェクトとしてGitHubで公開されています。
 
-CocoaPodsとの違いを@<b>{大まかに}すると、CocoaPodsでライブラリ管理をするより、Carthageでライブラリ管理をしたほうが@<b>{コンパイル時間が短縮できる}というメリットがあります。というのも、Carthageはライブラリをインストールするとそれを事前にビルドし、フレームワークを作成してくれるからです。@<br>{}
+CocoaPodsとの違いを@<b>{大まかに}すると、CocoaPodsでライブラリ管理をするより、Carthageでライブラリ管理をしたほうが@<b>{コンパイル時間が短縮できる}というメリットがあります。というのも、CocoaPodsはビルド時に毎回ライブラリもビルドしますが、Carthageはライブラリの導入時にしかビルドしません。なのでその分ビルド時間が速くなります。（※CocoaPodsでも一応毎回ビルドしないように設定はできる）@<br>{}
 ただし、導入が少し難しかったり、一部のライブラリは対応していなかったりするのでCocoaPodsと共存することが多いです。
 
-実際に、Carthageを使ってライブラリを導入してみます。
+ライブラリ導入時に変にハマる可能性があるので、CocoaPodsでライブラリ管理をするのが最初は良さそうです。
 
-  * WIP
-
-== R.swift
+== R.swift - リソースをタイプセーフに扱う
 
   * https://github.com/mac-cain13/R.swift
   * プロジェクトにインポートした画像やViewControllerのnib名を安全に取得できるようになるライブラリ
 
-例えば、いま開発中のプロジェクト内で画像、ViewControllerを扱うときに次のような書き方をしている場合
+例えば、いま開発中のプロジェクト内で画像やViewController.xibを扱うときに次のような書き方をしている場合
 
 //emlist[]{
 let icon = UIImage(named: "settings-icon")
@@ -93,12 +91,12 @@ let viewController = CustomViewController(nib: R.nib.customView)
 let string = R.string.localizable.welcomeWithName("Arthur Dent")
 //}
 
-ライブラリの導入に少し手順が必要ですが、導入するとタイプセーフにリソースを扱えるようになり、typoを減らせてかなり便利になります！
+ライブラリの導入に少し手順が必要ですが、導入するとタイプセーフにリソースを扱えるようになり、typoを減らせてとても便利です！
 
   * インストール詳細はコチラ
   * (https://github.com/mac-cain13/R.swift#cocoapods-recommended)
 
-== SwiftLint
+== SwiftLint - 静的解析ツール
 
   * オープンソースの静的解析ツール
   * https://github.com/realm/SwiftLint
@@ -107,7 +105,7 @@ GithubのSwift Style Guide (https://github.com/github/swift-style-guide)に基�
 
 例えば、次のようにコードスタイルガイドに反したコードを書いたときに自動的に指摘をしてくれます。
 
-//image[swiftlint-example][Swiftlintを実行した時の指摘]{
+//image[swiftlint-example][SwiftLintを実行した時の指摘]{
 //}
 
 チーム開発では必須ですね！
@@ -117,7 +115,7 @@ GithubのSwift Style Guide (https://github.com/github/swift-style-guide)に基�
 //emlist[]{
 # lint対象とするディレクトリ
 included:
-  - [あなたのプロジェクトの.swiftファイル群が置かれているディレクトリを指定]
+  - /YOUR/PROJECT/SOURCE/PATH
 # デフォルトのlint設定は、force castはコンパイルエラーレベルにしているが、warning（黄色いやつ）レベルまでに変更したいときにはこう書く
 force_cast: warning
 # 上と同じような感じ
@@ -136,7 +134,7 @@ function_body_length:
   - 100
 //}
 
-== SwiftDate
+== SwiftDate - 日付操作ライブラリ
 
   * オープンソースの日付パース、フォーマット、カスタム日付作成がSwiftで簡単にできるようになるライブラリ
   * https://github.com/malcommac/SwiftDate
@@ -162,7 +160,7 @@ let _ = date.compare(.isNextYear)
 
 日付によってXXしたい、N時間後にXしたい等、日付に関わる処理をしたいときに便利！
 
-== PKHUD
+== PKHUD - HUDライブラリ
 
   * 簡単にいろいろなHUDを表示できるライブラリ
   * https://github.com/pkluz/PKHUD
@@ -174,11 +172,11 @@ let _ = date.compare(.isNextYear)
 //image[pkhud-example][PKHUDで使えるHUD集]{
 //}
 
-== Nuke
+== Nuke - 画像読み込み・キャッシュライブラリ
 
   * 画像読み込み、キャッシュライブラリ
   * https://github.com/kean/Nuke
 
-ImagePipelineという仕組みがとても便利で、簡単に画像取得の優先度を設定できたりタスクのキャンセルが行えます。
+ImagePipelineという仕組みがとても便利で、画像取得の優先度を設定できたりタスクのキャンセルが簡単に行えます。
 
 筆者が扱っているプロダクトでは、以前はSDWebImageを使っていたのですが、それよりもNukeを使ったほうが画像表示が早く扱いやすかったので乗り換えました。

@@ -1,4 +1,4 @@
-= テスト
+= テストテクニック
 == XCTest
 
 ユニットテスト、パフォーマンステスト、UIテストなどを作成、実行できるフレームワーク
@@ -10,7 +10,7 @@
 
 //emlist[]{
 import XCTest
-@testable import test_sample
+@testable import YOUR_PACKAGE_NAME
 
 class test_sampleTests: XCTestCase {
 
@@ -36,7 +36,7 @@ class test_sampleTests: XCTestCase {
 }
 //}
 
-試しにいくつかサンプルを書いてみます
+試しにいくつかテスト対象のサンプルを書いてみます
 
 //emlist[]{
 // Int+Common.swift
