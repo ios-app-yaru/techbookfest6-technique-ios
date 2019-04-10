@@ -180,3 +180,33 @@ let _ = date.compare(.isNextYear)
 ImagePipelineという仕組みがとても便利で、画像取得の優先度を設定できたりタスクのキャンセルが簡単に行えます。
 
 筆者が扱っているプロダクトでは、以前はSDWebImageを使っていたのですが、それよりもNukeを使ったほうが画像表示が早く扱いやすかったので乗り換えました。
+
+//emlist[サンプルコード]{
+Nuke.loadImage(with: url, into: imageView)
+//}
+
+//emlist[サンプルコード2]{
+Nuke.loadImage(
+    with: url,
+    options: ImageLoadingOptions(
+        placeholder: UIImage(named: "placeholder"),
+        transition: .fadeIn(duration: 0.33)
+    ),
+    into: imageView
+)
+//}
+
+//emlist[サンプルコード3]{
+  let options = ImageLoadingOptions(
+      placeholder: UIImage(named: "placeholder"),
+      failureImage: UIImage(named: "failure_image"),
+      contentModes: .init(
+          success: .scaleAspectFill,
+          failure: .center,
+          placeholder: .center
+      )
+  )
+
+  Nuke.loadImage(with: url, options: options, into: imageView)
+}
+//}
