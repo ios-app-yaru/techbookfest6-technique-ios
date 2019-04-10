@@ -89,12 +89,13 @@ Auth.auth().signInAnonymously() { (authResult, error) in
 メールアドレスとパスワードを使ってサインアップしたいときは次のような書き方でできます。（※匿名ユーザからの引き継ぎではないので注意）
 
 //emlist[]{
-Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-  guard let user = authResult?.user else { return }
-  let user = authResult.user
-  let isAnonymous = user.isAnonymous  // false
-  let uid = user.uid
-}
+Auth.auth()
+  .createUser(withEmail: email, password: password) { (authResult, error) in
+    guard let user = authResult?.user else { return }
+    let user = authResult.user
+    let isAnonymous = user.isAnonymous  // false
+    let uid = user.uid
+  }
 //}
 
 同様に、Google連携やTwitter連携も簡単にできるのでドキュメントを参照してみてください。

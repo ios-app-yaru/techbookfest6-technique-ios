@@ -45,7 +45,7 @@
 次に、workflowを作ります。指定したブランチが更新されたときにどのようなアクションを取るか設定していきます。
 筆者の個人開発アプリでは次のようにしています。
 
-//image[bitrise-workflow][Bitrise workflow][scale=0.6]{
+//image[bitrise-workflow][Bitrise workflow][scale=0.7]{
 //}
 
 後は、masterブランチを更新したときに作ったworkflowが動けば成功！
@@ -88,7 +88,8 @@ fastlane init
 [23:20:43]: --- Welcome to fastlane 🚀 ---
 [23:20:43]: -----------------------------
 [23:20:43]: fastlane can help you with all kinds of automation for your mobile app
-[23:20:43]: We recommend automating one task first, and then gradually automating more over time
+[23:20:43]: We recommend automating one task first, and then gradually
+automating more over time
 [23:20:43]: What would you like to use fastlane for?
 1. 📸  Automate screenshots
 2. 👩‍✈️  Automate beta distribution to TestFlight
